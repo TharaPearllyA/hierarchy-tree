@@ -1,7 +1,7 @@
 import * as React from "react";
 import _ from "lodash";
 import * as Mousetrap from "mousetrap";
-import { Modal,IconButton } from "office-ui-fabric-react";
+import { Modal, IconButton, PrimaryButton, DefaultButton, TooltipHost } from "office-ui-fabric-react";
 import { Tree, ReactD3TreeItem, ReactD3TreeTranslate } from "react-d3-tree";
 import ArrowDropDown from "@material-ui/icons/ArrowBackIos";
 import { hierarchy, levelsData, ILevel, IDevice, IGroup } from "./Data";
@@ -159,17 +159,17 @@ class HierarchyTree extends React.Component<IProps, IState> {
           layerProps={{
             eventBubblingEnabled: true,
           }}>
-        
+
           <IconButton
-          style={{
-            position: "absolute",
-            top:"10px",
-            right:"10px"
-          }}
-              iconProps={{ iconName: 'Cancel' }}
-              ariaLabel="Close popup modal"
-              onClick={this.closeModal}
-            />
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px"
+            }}
+            iconProps={{ iconName: 'Cancel' }}
+            ariaLabel="Close popup modal"
+            onClick={this.closeModal}
+          />
 
           <div
             ref={(ref) => (this.treeContainer = ref)}
@@ -178,7 +178,7 @@ class HierarchyTree extends React.Component<IProps, IState> {
               width: "95vw",
             }}
           >
-                      {treeData ? (
+            {treeData ? (
               <Tree
                 allowForeignObjects
                 data={treeData}
@@ -211,16 +211,34 @@ class HierarchyTree extends React.Component<IProps, IState> {
             ) : null}
           </div>
           <div className="help-hot-key">
-          <div className="hot-key-escape">
-          Esc
-          <hr/>
+            <TooltipHost
+              content="Shortcut -- Press Esc key"
+              id={"hot-key-clear-tooltip"}
+              calloutProps={{
+                target: "hot-key-clear"
+              }}>
+              <DefaultButton
+                id="hot-key-clear"
+                text="Clear all"
+                aria-describedby="hot-key-clear-tooltip"
+                onClick={this.clearSelected}
+                className="hot-key-escape" />
+            </TooltipHost>
+            <TooltipHost
+              content="Shortcut -- Press Enter key"
+              id={"hot-key-confirm-tooltip"}
+              calloutProps={{
+                target: "hot-key-confirm"
+              }}>
+              <PrimaryButton 
+              id="hot-key-confirm" 
+              text="Confirm" 
+               aria-describedby="hot-key-confirm-tooltip"
+              onClick={this.confirmSelected} 
+              className="hot-key-enter" />
+            </TooltipHost>
           </div>
-          <div className="hot-key-enter">
-          Enter
-           <hr/>
-          </div>
-          </div>
-        
+
         </Modal>
       </div>
     );

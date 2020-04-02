@@ -215,7 +215,9 @@ div[class^= "node-"]{
   padding: 6px;
   transition: all 0.3s ease;
 }
-div[class^= "node-"]:hover:not(.node-disabled),
+div[class^= "node-"]:hover:not(.node-disabled){
+  border:1px solid #0078D4;
+}
 .node-selected{
   background-color : #0078D4;
   color: white;
@@ -241,25 +243,5 @@ div[class^= "node-"]:hover:not(.node-disabled),
   display: flex;
 }
 .hot-key-enter, .hot-key-escape {
-  padding: 6px;
-  color:rgba(112, 112, 112, 61%);
-  border:1.5px solid rgba(112, 112, 112, 61%);
-  height: 29px;
-  border-radius: 10px;
   margin: 0 2px;
-  position: relative;
-  text-align: center;
-  font-weight: 600;
-}
-.hot-key-enter {
-  width: 45px;
-}
-.hot-key-escape{
-  width: 25px
-}
-.help-hot-key hr {
-  background-color: grey;
-  width: 35%;
-  position: absolute;
-  right: 10px;
 }

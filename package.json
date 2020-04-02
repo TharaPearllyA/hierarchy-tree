@@ -9,7 +9,7 @@
     "@types/react-dom": "16.9.5",
     "lodash": "4.17.15",
     "mousetrap": "1.6.5",
-    "office-ui-fabric-react": "7.105.6",
+    "office-ui-fabric-react": "^7.105.7",
     "react": "16.13.1",
     "react-d3-tree": "1.16.1",
     "react-dom": "16.13.1",
