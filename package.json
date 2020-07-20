@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.9.1",
     "@types/react": "16.9.29",
     "@types/react-dom": "16.9.5",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "mousetrap": "1.6.5",
     "office-ui-fabric-react": "^7.105.7",
     "react": "16.13.1",
